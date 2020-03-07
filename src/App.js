@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.turn != this.state.turn) {
+    if (prevState.turn !=== this.state.turn) {
       let board = this.state.board;
       if (!board.hasMoves(this.state.turn)) {
         console.log("no available moves!!!");
@@ -41,7 +41,7 @@ class App extends Component {
     let selected = this.state.selectedSquare;
     if (this.canSelectSquare(row, column)) {
       this.setSquare(row, column);
-    } else if (selected != null) {
+    } else if (selected !== null) {
       this.handleMove(row, column);
     }
   }
@@ -149,7 +149,7 @@ class Row extends Component {
     let selectedCol = this.props.selectedSquare ? this.props.selectedSquare.column : null;
     let squares = this.props.row.map((square, i) => {
       return <Square key={i} 
-              val={square != null ? this.props.checkers[square] : null} 
+              val={square !=== null ? this.props.checkers[square] : null} 
               row={this.props.rowNum} 
               column={i} 
               selected={i == selectedCol ? true : false}
@@ -170,7 +170,7 @@ class Square extends Component {
     let classes = "square " + color + selection;
     return (
       <div className={classes} onClick={() => this.props.selectSquare(this.props.row, this.props.column)}>
-        {this.props.val != null &&
+        {this.props.val !=== null &&
           <Piece checker={this.props.val} />
         }
       </div>
