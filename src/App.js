@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Board from './board.js';
 
+/* eslint-disable */
+
 const BOARD_SIZE = 8;
 const PLAYER_ONE = 1;
 const PLAYER_TWO = 2;
@@ -27,7 +29,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.turn !=== this.state.turn) {
+    if (prevState.turn !== this.state.turn) {
       let board = this.state.board;
       if (!board.hasMoves(this.state.turn)) {
         console.log("no available moves!!!");
@@ -149,7 +151,7 @@ class Row extends Component {
     let selectedCol = this.props.selectedSquare ? this.props.selectedSquare.column : null;
     let squares = this.props.row.map((square, i) => {
       return <Square key={i} 
-              val={square !=== null ? this.props.checkers[square] : null} 
+              val={square !== null ? this.props.checkers[square] : null} 
               row={this.props.rowNum} 
               column={i} 
               selected={i == selectedCol ? true : false}
@@ -170,7 +172,7 @@ class Square extends Component {
     let classes = "square " + color + selection;
     return (
       <div className={classes} onClick={() => this.props.selectSquare(this.props.row, this.props.column)}>
-        {this.props.val !=== null &&
+        {this.props.val !== null &&
           <Piece checker={this.props.val} />
         }
       </div>
@@ -191,5 +193,6 @@ function Piece(props) {
     <div className={classes}></div>
   )
 }
+/* eslint-disable */
 
 export default App;
