@@ -1,3 +1,4 @@
+/* eslint-disable */
 function Board(size, playerOne, playerTwo) {
 	this.board = this.fillBoard(this.makeBoard(size));
 	this.playerOne = playerOne;
